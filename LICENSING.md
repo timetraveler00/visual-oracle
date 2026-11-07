@@ -14,9 +14,10 @@ components are the copyright holder's own work. Third-party code, if present,
 retains its original terms; the MIT notice cannot override another copyright
 holder's rights.
 
-Both named rights holders should approve the release, and any applicable
+Before public release, confirm that the copyright holder has the necessary
+rights to license all included original software contributions. Any applicable
 university, employment, or project intellectual-property requirements should
-be checked before the repository becomes public.
+also be checked.
 
 ## Material not licensed under MIT by this repository
 
