@@ -97,9 +97,9 @@ in this snapshot; those paths are not prerequisites for integrity verification.
 
 ## Licensing and third-party materials
 
-The authors' **original source code and accompanying software documentation**
+The copyright holder's **original source code and accompanying software documentation**
 are released under the [MIT License](LICENSE), subject to confirmation that
-the named copyright holders have the rights to license those contributions.
+the copyright holder has the rights to license those contributions.
 See [LICENSING.md](LICENSING.md) for the precise scope and outstanding rights
 checks.
 

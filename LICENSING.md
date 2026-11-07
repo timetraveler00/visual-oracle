@@ -7,12 +7,12 @@ external materials or substitute for a rights review.
 ## MIT-licensed material
 
 The root [`LICENSE`](LICENSE) (MIT) applies to **original software source code
-and its accompanying software documentation** for which Doğukan Biçer and
-Savaş Öztürk hold the necessary rights. This includes the authors' original
-Python implementations and original executable notebook code, to the extent
-those components are their own work. Third-party code, if present, retains its
-original terms; the MIT notice cannot override another copyright holder's
-rights.
+and its accompanying software documentation** for which Savaş Öztürk holds
+the necessary rights. This includes the copyright holder's original Python
+implementations and original executable notebook code, to the extent those
+components are the copyright holder's own work. Third-party code, if present,
+retains its original terms; the MIT notice cannot override another copyright
+holder's rights.
 
 Both named rights holders should approve the release, and any applicable
 university, employment, or project intellectual-property requirements should
