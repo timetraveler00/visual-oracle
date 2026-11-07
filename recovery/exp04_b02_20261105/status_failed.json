@@ -1,0 +1,14 @@
+{
+  "state": "failed",
+  "started_at": "2026-11-04T07:11:03+00:00",
+  "updated_at": "2026-11-04T07:12:34+00:00",
+  "pid": 46360,
+  "current": 0,
+  "total": 11,
+  "results": [],
+  "message": "[Errno 13] Permission denied: 'D:\\\\visual-oracle-revision\\\\captures\\\\fault_runs_summary.csv'",
+  "prepared_source": "D:\\visual-oracle-revision\\videos\\720p50_shields_ter.y4m",
+  "numbered_source": "D:\\visual-oracle-revision\\videos\\720p50_shields_ter_numbered.y4m",
+  "finished_at": "2026-11-04T07:12:34+00:00",
+  "error_traceback": "Traceback (most recent call last):\n  File \"D:\\visual-oracle-revision\\12_visual_oracle_runner.py\", line 345, in run\n    result = run_one(source, numbered, metadata, cond, cfg['duration'], cfg['interval'], nodes,\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\visual-oracle-revision\\12_visual_oracle_runner.py\", line 270, in run_one\n    return fault.run_once(condition['scenario'], args, quality, overlay)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\visual-oracle-revision\\11_jitsi_fault_injection_v2.py\", line 468, in run_once\n    return annotate_run(new_dirs[0], scenario, args.severity, window, info,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\visual-oracle-revision\\11_jitsi_fault_injection_v2.py\", line 425, in annotate_run\n    with summary_path.open('a', newline='', encoding='utf-8-sig' if not summary_path.exists() else 'utf-8') as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\SAVAS\\miniconda3\\envs\\visual-oracle\\Lib\\pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: 'D:\\\\visual-oracle-revision\\\\captures\\\\fault_runs_summary.csv'\n"
+}

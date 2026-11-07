@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "project": "EXP04",
+  "videos": {
+    "shields": {
+      "filename": "720p50_shields_ter.y4m",
+      "relative_path": "videos/720p50_shields_ter.y4m",
+      "source": null,
+      "origin": "Previously used Xiph DERF Shields source; reused unchanged for EXP04",
+      "content_role": "historical_reference_exp01_exp03",
+      "sha256": "b5b09557dc76aec2a854dc34e0fe200bdb1ee5a2eee1dbb61cc1ec6861e6a742",
+      "verified_utc": "2026-11-03T20:26:42+00:00",
+      "width": 1280,
+      "height": 720,
+      "fps": 50,
+      "pixel_format": "yuv420p",
+      "frame_count": 504,
+      "duration_seconds": 10.08,
+      "bytes": 696732659
+    },
+    "fourpeople": {
+      "filename": "720p50_fourpeople_exp04.y4m",
+      "relative_path": "videos/720p50_fourpeople_exp04.y4m",
+      "source": "https://media.xiph.org/video/derf/y4m/FourPeople_1280x720_60.y4m",
+      "origin": "Xiph.org DERF test media, FourPeople, original 60 FPS",
+      "content_role": "speakers_faces",
+      "sha256": "57432c58bbe95821ddff88ff87b009d5864ee141d59991ae30592c6bc2f92819",
+      "verified_utc": "2026-11-03T20:47:30+00:00",
+      "width": 1280,
+      "height": 720,
+      "fps": 50,
+      "pixel_format": "yuv420p",
+      "frame_count": 500,
+      "duration_seconds": 10.0,
+      "bytes": 691203059
+    },
+    "parkrun": {
+      "filename": "720p50_parkrun_exp04.y4m",
+      "relative_path": "videos/720p50_parkrun_exp04.y4m",
+      "source": "https://media.xiph.org/video/derf/y4m/720p50_parkrun_ter.y4m",
+      "origin": "Xiph.org DERF test media, Parkrun, original 50 FPS",
+      "content_role": "dynamic_motion",
+      "sha256": "b7e69e0342d79b6739ac19457936b1f0c25656e0b8db940332d6bf7b36859997",
+      "verified_utc": "2026-11-03T20:51:46+00:00",
+      "width": 1280,
+      "height": 720,
+      "fps": 50,
+      "pixel_format": "yuv420p",
+      "frame_count": 500,
+      "duration_seconds": 10.0,
+      "bytes": 691203059
+    },
+    "screenshare": {
+      "filename": "720p50_screenshare_exp04.y4m",
+      "relative_path": "videos/720p50_screenshare_exp04.y4m",
+      "source": null,
+      "origin": "Original deterministic synthetic screen-share-like video (not a real captured app)",
+      "content_role": "synthetic_text_charts_ui",
+      "sha256": "f72548135b483f062c2864fd4961999e6f4a572b4b89ef825fa71381ced45c3a",
+      "verified_utc": "2026-11-03T20:51:50+00:00",
+      "width": 1280,
+      "height": 720,
+      "fps": 50,
+      "pixel_format": "yuv420p",
+      "frame_count": 500,
+      "duration_seconds": 10.0,
+      "bytes": 691203059
+    }
+  },
+  "ffmpeg_version": "ffmpeg version 2026-11-02-git-b034eb5e7e-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers",
+  "normalization": {
+    "width": 1280,
+    "height": 720,
+    "fps": 50,
+    "pixel_format": "yuv420p",
+    "duration_seconds": 10
+  }
+}

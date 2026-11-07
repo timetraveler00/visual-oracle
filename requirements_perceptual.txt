@@ -1,0 +1,7 @@
+# Optional: install only if DISTS, DINOv2 or OpenCLIP is selected.
+# Install PyTorch using the official CPU/CUDA wheel instructions if needed.
+torch>=2.2
+torchvision>=0.17
+Pillow>=10
+DISTS-pytorch
+open_clip_torch>=2.26

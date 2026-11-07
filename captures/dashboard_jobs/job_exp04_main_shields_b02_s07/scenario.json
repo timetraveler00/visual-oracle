@@ -1,0 +1,24 @@
+{
+  "clip_seconds": 10,
+  "conditions": [
+    {
+      "scenario": "blur",
+      "severity": "medium"
+    }
+  ],
+  "duration": 30,
+  "exp04_block": 2,
+  "exp04_dataset_role": "calibration",
+  "exp04_phase": "main240",
+  "exp04_position": 7,
+  "exp04_scoring": "OFFLINE 640x360; no upscaling; same ROI/mask; no test-set threshold tuning",
+  "exp04_shuffle_seed": 3409432119000358767,
+  "exp04_video": "shields",
+  "interval": 1,
+  "name": "EXP04 main shields block 02 position 07",
+  "node_count": 2,
+  "perceptual_metrics": [],
+  "repeats": 1,
+  "schema_version": 1,
+  "video": "videos/720p50_shields_ter.y4m"
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "name": "EXP03 – Resolution Sensitivity Pilot",
+  "video": "videos/720p50_shields_ter.y4m",
+  "node_count": 2,
+  "duration": 30,
+  "interval": 2,
+  "repeats": 5,
+  "clip_seconds": 10,
+  "perceptual_metrics": [],
+  "conditions": [
+    {
+      "scenario": "baseline",
+      "severity": "medium"
+    },
+    {
+      "scenario": "blur",
+      "severity": "low"
+    }
+  ],
+  "methodology": "Receiver resolution is observed, not forced. Independent sessions; condition order blocked. Offline paired downsampling tests evaluation-scale sensitivity, not causal WebRTC resolution effects."
+}

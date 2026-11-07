@@ -1,0 +1,17 @@
+EXP04 Shields freeze/low source-Y4M check
+
+Fault: D:\visual-oracle-revision\fault_sources\720p50_shields_ter_2064530c7f\720p50_shields_ter_fault_freeze_low.y4m
+Reference: D:\visual-oracle-revision\videos\720p50_shields_ter_numbered.y4m
+Range: 150..224 inclusive (zero-based), at nominal 50 FPS
+Duration: 1.500 seconds
+Consecutive pairs in region: 74
+Pixel-identical pairs: 0/74
+Mean adjacent MAE in region: 0.741205 / 255
+Mean adjacent MAE outside: 13.958096 / 255
+Verdict: No pixel-identical adjacent frames in the selected interval. A full-frame hold is NOT confirmed; check the actual fault mechanism and indices.
+
+IMPORTANT: This tests the sender-side fault Y4M, NOT the received WebRTC video.
+A repeated frame number in a looped video is not sufficient proof of a freeze.
+Adjacent pixel differences near zero across the full intended interval are the key test.
+Mean fault-vs-clean MAE in region: 37.454123 / 255
+Mean fault-vs-clean MAE outside: 0.000000 / 255

@@ -1,0 +1,24 @@
+{
+  "clip_seconds": 10,
+  "conditions": [
+    {
+      "scenario": "baseline",
+      "severity": "medium"
+    }
+  ],
+  "duration": 30,
+  "exp04_block": 2,
+  "exp04_dataset_role": "calibration",
+  "exp04_phase": "main240",
+  "exp04_position": 1,
+  "exp04_scoring": "OFFLINE 640x360; no upscaling; same ROI/mask; no test-set threshold tuning",
+  "exp04_shuffle_seed": 18325878143838038749,
+  "exp04_video": "fourpeople",
+  "interval": 1,
+  "name": "EXP04 main fourpeople block 02 position 01",
+  "node_count": 2,
+  "perceptual_metrics": [],
+  "repeats": 1,
+  "schema_version": 1,
+  "video": "videos/720p50_fourpeople_exp04.y4m"
+}

@@ -1,0 +1,40 @@
+
+services:
+  selenium-hub:
+    image: selenium/hub:4.27.0
+    container_name: selenium-hub
+    ports:
+      - "127.0.0.1:4444:4444"
+    environment:
+      - SE_SESSION_REQUEST_TIMEOUT=300
+    restart: unless-stopped
+
+  chrome1:
+    image: selenium/node-chrome:4.27.0
+    container_name: selenium-chrome-1
+    shm_size: "2gb"
+    depends_on:
+      - selenium-hub
+    ports:
+      - "127.0.0.1:7901:7900"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=1
+    restart: unless-stopped
+
+  chrome2:
+    image: selenium/node-chrome:4.27.0
+    container_name: selenium-chrome-2
+    shm_size: "2gb"
+    depends_on:
+      - selenium-hub
+    ports:
+      - "127.0.0.1:7902:7900"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=1
+    restart: unless-stopped

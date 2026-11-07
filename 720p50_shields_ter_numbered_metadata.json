@@ -1,0 +1,34 @@
+{
+  "source": "D:\\visual-oracle-revision\\720p50_shields_ter.y4m",
+  "output": "D:\\visual-oracle-revision\\720p50_shields_ter_numbered.y4m",
+  "width": 1280,
+  "height": 720,
+  "fps_numerator": 50,
+  "fps_denominator": 1,
+  "fps": 50.0,
+  "frame_count": 504,
+  "duration_seconds": 10.08,
+  "chroma": "420",
+  "frame_number_base": 0,
+  "overlay_rect_xyxy_source_pixels": [
+    12,
+    12,
+    572,
+    128
+  ],
+  "overlay_rect_normalized_xyxy": [
+    0.009375,
+    0.016666666666666666,
+    0.446875,
+    0.17777777777777778
+  ],
+  "barcode": {
+    "bits": "1010 + 16-bit frame index (MSB first) + 4-bit XOR of nibbles",
+    "source_cell_x": 24,
+    "source_cell_y": 78,
+    "source_cell_width": 20,
+    "source_cell_height": 32,
+    "number_of_cells": 24
+  },
+  "warning": "Exclude overlay rectangle from SSIM/PSNR and other image-quality metrics."
+}

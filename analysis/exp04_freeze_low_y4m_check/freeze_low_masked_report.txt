@@ -1,0 +1,13 @@
+EXP04 Shields freeze/low – frame-counter-masked Y4M check
+Fault: D:\visual-oracle-revision\fault_sources\720p50_shields_ter_2064530c7f\720p50_shields_ter_fault_freeze_low.y4m
+Reference: D:\visual-oracle-revision\videos\720p50_shields_ter_numbered.y4m
+Frame range (zero-based): 150..224 inclusive
+Masked rectangle at 320x180: x=0..154, y=0..37
+Unmasked pixels: 51710/57600 (89.77%)
+Pixel-identical adjacent scene pairs inside freeze (151..224): 74/74
+Mean masked adjacent MAE inside freeze: 0.000000000 / 255
+At frame 150: fault vs reference masked MAE = 0.000000000; changed pixels = 0
+At frame 225: fault vs reference masked MAE = 0.000000000; changed pixels = 0
+Scene change at 224->225: masked adjacent MAE = 45.806749178 / 255
+VERDICT: SCENE HOLD CONFIRMED for all 74 adjacent pairs outside the frame-counter overlay.
+Caution: Sender-side Y4M only; this does not prove the receiver observed all 75 frames as a continuous freeze.

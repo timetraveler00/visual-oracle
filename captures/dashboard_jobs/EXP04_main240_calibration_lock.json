@@ -1,0 +1,333 @@
+{
+  "document_type": "EXP04 five-metric calibration lock — ACTIVE (approved before holdout)",
+  "schema_version": 2,
+  "analysis_locked": true,
+  "holdout_authorized": true,
+  "plan_sha256": "303dd62dfa915d729b4954bfca3469ecc025167136334d6afb895df27734732f",
+  "calibration_videos": [
+    "shields",
+    "fourpeople"
+  ],
+  "holdout_videos": [
+    "parkrun",
+    "screenshare"
+  ],
+  "analysis_protocol_id": "EXP04_layered_5metric_v1_frozen",
+  "calibration_evidence": {
+    "calibration_640_zip_sha256": "bc29ff68e99fca685264ef040afa0eb37bd80aaef1654bfc28181e00ed19cac8",
+    "deep_calibration_zip_sha256": "69df8f437fe837205eda1a6ceddea99ccd91becfa34f41f2901be8870c05dcff",
+    "deep_samples_sha256": "321408c6a8c80fcb33fae93c397b05f1be578664bd0a7ca3aed288854ca267a8",
+    "deep_sessions_sha256": "41050bc29830ed9cc196c426fb17f6ba8bb6ad8d45ba9e653c33a8453e3b2e66",
+    "selected_640_samples_sha256": "229c6ccda37f98f46929b178a33e1f41d2d742e832959d0ab4957b2c1c4fc2a9",
+    "common_mask_sha256": "3fd86ebae8c8971a7c4a7c10fa0e53a48874089a6c242366aef2ddbce927da36",
+    "dists_weights_sha256": "27b401caaaca74ce73ff7b4e508073dd5748cde3895e42939aa90e45051fea00",
+    "dinov2_base_weights_sha256": "a35a377ec6a3bd33ca3cb0fee889073733120bd34bf7c1789df8c89fa0ed9a33",
+    "openclip_weights_sha256": "de6db13d2a0981cfd2585542dff27b0129754dcb2892952715b8b587d1ca5657",
+    "sessions": 120,
+    "baseline_sessions": 20,
+    "fault_sessions": 100,
+    "eligible_images": 3665,
+    "quality_excluded": 4,
+    "below_640x360_excluded": 51,
+    "holdout_used": false,
+    "resolution": "640x360",
+    "no_upscaling": true,
+    "common_roi_fraction": 0.908125
+  },
+  "scoring_protocol": {
+    "unit_of_analysis": "one independent Jitsi meeting / session",
+    "fault_label": "condition != baseline; labels NEVER used as scoring inputs",
+    "eligible_frame_policy": "capture_status=OK AND quality_status=OK AND native_width>=640 AND native_height>=360; no upscaling",
+    "minimum_eligible_frames_per_session": 15,
+    "aggregation": "q10 per-frame SSIM, PSNR, DINOv2 cosine and OpenCLIP cosine; q90 per-frame DISTS distance; all eligible frames",
+    "structural_mask": "common 640x360 mask intersection; SSIM/PSNR masked pixel scoring",
+    "deep_mask": "excluded pixels replaced with RGB (127,127,127) in both reference and received images",
+    "deep_input": "DINOv2 and OpenCLIP 224x224 letterbox, no crop; DISTS full 640x360",
+    "model_specification": {
+      "DISTS": "DISTS_pytorch pretrained, RGB [0,1], distance",
+      "DINOv2": "facebookresearch/dinov2:dinov2_vitb14, CLS cosine",
+      "OpenCLIP": "ViT-B-32:laion2b_s34b_b79k, image cosine"
+    },
+    "freeze_video_normalization": "No holdout-video-specific threshold tuning, no per-video baseline calibration",
+    "frozen_scorer_filename": "exp04_oracle_frozen.py",
+    "frozen_scorer_sha256": "12ab603c1305a5633f429f9051449832ea726d4ebd9cc2a4dcea0dfcc8dd1fe9"
+  },
+  "thresholds": {
+    "ssim_q10": {
+      "operator": "<",
+      "value": 0.81,
+      "unit": "similarity"
+    },
+    "psnr_q10_db": {
+      "operator": "<",
+      "value": 25.0,
+      "unit": "dB"
+    },
+    "dists_q90_distance_blur_branch": {
+      "operator": ">",
+      "value": 0.1,
+      "unit": "distance"
+    },
+    "dinov2_q10_cosine_high_blur_branch": {
+      "operator": ">",
+      "value": 0.975,
+      "unit": "cosine"
+    },
+    "openclip_q10_cosine_high_blur_branch": {
+      "operator": ">",
+      "value": 0.96,
+      "unit": "cosine"
+    },
+    "dinov2_q10_cosine_low_semantic_branch": {
+      "operator": "<",
+      "value": 0.94,
+      "unit": "cosine"
+    },
+    "openclip_q10_cosine_low_semantic_branch": {
+      "operator": "<",
+      "value": 0.93,
+      "unit": "cosine"
+    },
+    "dists_q90_distance_single": {
+      "operator": ">",
+      "value": 0.1575,
+      "unit": "distance"
+    },
+    "dinov2_q10_cosine_single": {
+      "operator": "<",
+      "value": 0.9487,
+      "unit": "cosine"
+    },
+    "openclip_q10_cosine_single": {
+      "operator": "<",
+      "value": 0.9399,
+      "unit": "cosine"
+    }
+  },
+  "primary_rule": {
+    "name": "layered_five_metric_v1",
+    "fault_if_any_layer_true": true,
+    "layers": [
+      {
+        "id": 1,
+        "name": "structural_alarm",
+        "positive_if": "(q10_ssim < 0.81) OR (q10_psnr_db < 25.0)"
+      },
+      {
+        "id": 2,
+        "name": "perceptual_blur_with_semantic_preservation",
+        "positive_if": "(q90_dists_distance > 0.10) AND (q10_dinov2_base_cosine > 0.975) AND (q10_openclip_cosine > 0.96)"
+      },
+      {
+        "id": 3,
+        "name": "semantic_disruption",
+        "positive_if": "(q10_dinov2_base_cosine < 0.94) AND (q10_openclip_cosine < 0.93)"
+      }
+    ],
+    "note": "Stage 2 was designed after examining the five residual FourPeople blur/low calibration cases; apparent perfect fit is at risk of overfitting. Stage 3 has zero incremental detections in calibration."
+  },
+  "comparator_rules": {
+    "SSIM": "q10_ssim < 0.81",
+    "PSNR": "q10_psnr_db < 25.0",
+    "DISTS": "q90_dists_distance > 0.1575",
+    "DINOv2": "q10_dinov2_base_cosine < 0.9487",
+    "OpenCLIP": "q10_openclip_cosine < 0.9399",
+    "SSIM_AND_PSNR": "SSIM AND PSNR",
+    "SSIM_OR_PSNR": "SSIM OR PSNR",
+    "ALL5_AND": "SSIM AND PSNR AND DISTS AND DINOv2 AND OpenCLIP",
+    "ALL5_OR": "SSIM OR PSNR OR DISTS OR DINOv2 OR OpenCLIP"
+  },
+  "calibration_apparent_results": {
+    "SSIM": {
+      "TP": 73,
+      "FN": 27,
+      "FP": 0,
+      "TN": 20,
+      "accuracy": 0.775,
+      "precision": 1.0,
+      "recall": 0.73,
+      "specificity": 1.0,
+      "F1": 0.843931,
+      "FPR": 0.0,
+      "FNR": 0.27
+    },
+    "PSNR": {
+      "TP": 86,
+      "FN": 14,
+      "FP": 0,
+      "TN": 20,
+      "accuracy": 0.883333,
+      "precision": 1.0,
+      "recall": 0.86,
+      "specificity": 1.0,
+      "F1": 0.924731,
+      "FPR": 0.0,
+      "FNR": 0.14
+    },
+    "DISTS": {
+      "TP": 75,
+      "FN": 25,
+      "FP": 0,
+      "TN": 20,
+      "accuracy": 0.791667,
+      "precision": 1.0,
+      "recall": 0.75,
+      "specificity": 1.0,
+      "F1": 0.857143,
+      "FPR": 0.0,
+      "FNR": 0.25
+    },
+    "DINOv2": {
+      "TP": 83,
+      "FN": 17,
+      "FP": 0,
+      "TN": 20,
+      "accuracy": 0.858333,
+      "precision": 1.0,
+      "recall": 0.83,
+      "specificity": 1.0,
+      "F1": 0.907104,
+      "FPR": 0.0,
+      "FNR": 0.17
+    },
+    "OpenCLIP": {
+      "TP": 89,
+      "FN": 11,
+      "FP": 0,
+      "TN": 20,
+      "accuracy": 0.908333,
+      "precision": 1.0,
+      "recall": 0.89,
+      "specificity": 1.0,
+      "F1": 0.941799,
+      "FPR": 0.0,
+      "FNR": 0.11
+    },
+    "SSIM_AND_PSNR": {
+      "TP": 64,
+      "FN": 36,
+      "FP": 0,
+      "TN": 20,
+      "accuracy": 0.7,
+      "precision": 1.0,
+      "recall": 0.64,
+      "specificity": 1.0,
+      "F1": 0.780488,
+      "FPR": 0.0,
+      "FNR": 0.36
+    },
+    "SSIM_OR_PSNR": {
+      "TP": 95,
+      "FN": 5,
+      "FP": 0,
+      "TN": 20,
+      "accuracy": 0.958333,
+      "precision": 1.0,
+      "recall": 0.95,
+      "specificity": 1.0,
+      "F1": 0.974359,
+      "FPR": 0.0,
+      "FNR": 0.05
+    },
+    "ALL5_AND": {
+      "TP": 54,
+      "FN": 46,
+      "FP": 0,
+      "TN": 20,
+      "accuracy": 0.616667,
+      "precision": 1.0,
+      "recall": 0.54,
+      "specificity": 1.0,
+      "F1": 0.701299,
+      "FPR": 0.0,
+      "FNR": 0.46
+    },
+    "ALL5_OR": {
+      "TP": 95,
+      "FN": 5,
+      "FP": 0,
+      "TN": 20,
+      "accuracy": 0.958333,
+      "precision": 1.0,
+      "recall": 0.95,
+      "specificity": 1.0,
+      "F1": 0.974359,
+      "FPR": 0.0,
+      "FNR": 0.05
+    },
+    "LAYERED_PRIMARY": {
+      "TP": 100,
+      "FN": 0,
+      "FP": 0,
+      "TN": 20,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": 1.0,
+      "F1": 1.0,
+      "FPR": 0.0,
+      "FNR": 0.0
+    }
+  },
+  "paired_comparison": {
+    "methods": [
+      "SSIM_OR_PSNR",
+      "LAYERED_PRIMARY"
+    ],
+    "discordant_improved": 5,
+    "discordant_worsened": 0,
+    "mcnemar_exact_two_sided_p": 0.0625,
+    "interpretation": "Calibration only, not an unbiased test of gain"
+  },
+  "holdout_evaluation_plan": {
+    "primary_comparison": "LAYERED_PRIMARY versus SSIM_OR_PSNR",
+    "secondary_comparators": [
+      "SSIM",
+      "PSNR",
+      "DISTS",
+      "DINOv2",
+      "OpenCLIP",
+      "SSIM_AND_PSNR",
+      "ALL5_AND",
+      "ALL5_OR"
+    ],
+    "outcomes": [
+      "TP",
+      "FP",
+      "TN",
+      "FN",
+      "accuracy",
+      "precision",
+      "recall",
+      "specificity",
+      "F1",
+      "FPR",
+      "FNR"
+    ],
+    "subgroup_reporting": [
+      "video",
+      "condition",
+      "severity"
+    ],
+    "uncertainty": "95% Wilson CIs by independent session; interpret small baseline n and within-video correlation cautiously",
+    "paired_test": "Exact McNemar on independent session decisions, descriptive if underpowered",
+    "missing_data": "Exclude and separately report any session with <15 eligible frames; no score imputation; do not adjust thresholds",
+    "threshold_tuning_on_holdout": false,
+    "posthoc_changes": "Any modifications after holdout exposure must be labeled exploratory and reported separately",
+    "decision_blind_to": [
+      "condition",
+      "severity",
+      "video",
+      "fault_active",
+      "stage"
+    ]
+  },
+  "review": {
+    "approved_by_user": true,
+    "approval_context": "User replied \"devam\" to the request to approve the three-layer calibration thresholds and proceed to holdout.",
+    "approved_date": "2026-11-06",
+    "approval_required_before_renaming_to_active_lock": false,
+    "thresholds_final": true,
+    "instruction": "Do not change thresholds, aggregation, preprocessing, or model definitions based on holdout results. Any later modifications must be labeled exploratory."
+  }
+}

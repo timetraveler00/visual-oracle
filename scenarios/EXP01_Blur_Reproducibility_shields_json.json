@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "name": "EXP01_Blur_Reproducibility_shields.json",
+  "video": "videos/720p50_shields_ter.y4m",
+  "node_count": 2,
+  "duration": 60,
+  "interval": 5,
+  "repeats": 1,
+  "clip_seconds": 10,
+  "perceptual_metrics": [
+    "DISTS",
+    "DINOv2",
+    "OpenCLIP"
+  ],
+  "conditions": [
+    {
+      "scenario": "baseline",
+      "severity": "medium"
+    },
+    {
+      "scenario": "blur",
+      "severity": "low"
+    },
+    {
+      "scenario": "blur",
+      "severity": "medium"
+    },
+    {
+      "scenario": "blur",
+      "severity": "high"
+    }
+  ],
+  "methodology": "Source-side content faults, two participants, sequential independent Jitsi sessions"
+}

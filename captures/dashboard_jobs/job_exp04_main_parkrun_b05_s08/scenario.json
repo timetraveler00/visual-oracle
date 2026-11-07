@@ -1,0 +1,24 @@
+{
+  "clip_seconds": 10,
+  "conditions": [
+    {
+      "scenario": "blur",
+      "severity": "low"
+    }
+  ],
+  "duration": 30,
+  "exp04_block": 5,
+  "exp04_dataset_role": "holdout",
+  "exp04_phase": "main240",
+  "exp04_position": 8,
+  "exp04_scoring": "OFFLINE 640x360; no upscaling; same ROI/mask; no test-set threshold tuning",
+  "exp04_shuffle_seed": 3501488122856929556,
+  "exp04_video": "parkrun",
+  "interval": 1,
+  "name": "EXP04 main parkrun block 05 position 08",
+  "node_count": 2,
+  "perceptual_metrics": [],
+  "repeats": 1,
+  "schema_version": 1,
+  "video": "videos/720p50_parkrun_exp04.y4m"
+}
