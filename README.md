@@ -1,5 +1,17 @@
 # Visual Oracle: publication snapshot (EXP04)
 
+
+## Associated manuscript
+
+**Title:** *Automated Visual Test Oracles for Video-Conferencing Software: An Empirical Evaluation of Semantic and Structural Image Similarity Metrics*
+
+**Authors (in manuscript order):** Doğukan Biçer; Savaş Öztürk.
+
+**Publication status:** Manuscript under peer review/revision as of 2026-11-07.
+This repository does not claim journal acceptance, publication, or a DOI.
+See [`CITATION.cff`](CITATION.cff) for a citation of this repository snapshot;
+the manuscript and this repository are distinct citation objects.
+
 This directory was generated as a **code-and-derived-results snapshot** from a
 locally archived, immutable experimental project. It is NOT a complete raw-data
 archive and must not be described as a self-contained reproduction package.
@@ -52,10 +64,34 @@ excluded rather than modified, because removing those strings changes behavior.
   Rows marked `english_adaptation` are not byte-identical to the local originals.
   The frozen EXP04 scorer, plan and calibration lock are unchanged.
 
-## Verification
+## Verification and inspection
 
-Run `python visual_oracle_github_prepare_v4.py --verify` from the external
-preparation script location, using `--output` if not the default.
+The read-only verifier in this repository checks the Git commit's stored bytes
+against `publication_manifest.csv`, validates the 240 planned scenarios and
+frozen plan/scorer hashes, and tests the four nested result archives. It uses
+only Python's standard library and the Git command-line client. From the
+repository root, run (on Windows, use Anaconda Prompt if `python` is not on
+PowerShell's PATH):
+
+```bash
+python tools/verify_git_manifest.py --repo . --ref HEAD
+```
+
+A successful run reports `355 / 355` manifest matches, `240 / 240` scenario
+matches, four verified ZIPs, and `[PASS]`. This checks integrity, not scientific
+reproduction from omitted raw videos, images, or model checkpoints.
+
+The EXP04 holdout tables are stored **inside**
+`captures/EXP04_holdout_evaluation_20261107_071300.zip`. For example, to
+extract them into a separate folder for inspection:
+
+```bash
+python -m zipfile -e captures/EXP04_holdout_evaluation_20261107_071300.zip extracted_holdout
+```
+
+The resulting `extracted_holdout/EXP04_holdout_5metric_sessions.csv` is the
+actual session-level table. Historical scripts may refer to paths not shipped
+in this snapshot; those paths are not prerequisites for integrity verification.
 
 ## License
 

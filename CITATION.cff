@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: >-
+  If you use this repository, please cite this code-and-derived-results
+  snapshot. The associated manuscript is under review; no journal DOI
+  or publication details are claimed here.
+type: software
+title: >-
+  Automated Visual Test Oracles for Video-Conferencing Software:
+  An Empirical Evaluation of Semantic and Structural Image Similarity
+  Metrics — code and derived results
+authors:
+  - family-names: Biçer
+    given-names: Doğukan
+  - family-names: Öztürk
+    given-names: Savaş
+repository-code: https://github.com/timetraveler00/visual-oracle
+url: https://github.com/timetraveler00/visual-oracle
+abstract: >-
+  Source code, frozen experiment configuration, and selected derived
+  results supporting the manuscript 'Automated Visual Test Oracles for
+  Video-Conferencing Software: An Empirical Evaluation of Semantic and
+  Structural Image Similarity Metrics'. This is not a complete raw-data
+  archive or a self-contained end-to-end replication package.
+keywords:
+  - visual test oracle
+  - video conferencing
+  - image similarity
+  - software testing
