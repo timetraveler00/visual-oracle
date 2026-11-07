@@ -52,12 +52,14 @@ offline per-metric benchmark does not measure full end-to-end WebRTC latency.
 
 The publication export passed an automated English-language marker audit. This
 is not a substitute for a human review of ASCII-only prose and metadata.
-Some historical Google Meet scripts relied on Turkish interface text and are
-excluded rather than modified, because removing those strings changes behavior.
+The earlier Google Meet automation prototype was abandoned because of
+authentication constraints. Its obsolete setup notes and example configurations
+are excluded from this Jitsi-focused publication snapshot. Historical Google
+Meet study labels are retained where needed to document experimental provenance.
 
 ## Snapshot status
 
-- Published files from source: 355 (some are English adaptations).
+- Published files from source: 352 (some are English adaptations).
 - Excluded/review entries in the local scan: 24694.
 - The source directory was not modified.
 - See `publication_manifest.csv` for original and published SHA-256 values.
@@ -77,7 +79,7 @@ PowerShell's PATH):
 python tools/verify_git_manifest.py --repo . --ref HEAD
 ```
 
-A successful run reports `355 / 355` manifest matches, `240 / 240` scenario
+A successful run reports `352 / 352` manifest matches, `240 / 240` scenario
 matches, four verified ZIPs, and `[PASS]`. This checks integrity, not scientific
 reproduction from omitted raw videos, images, or model checkpoints.
 

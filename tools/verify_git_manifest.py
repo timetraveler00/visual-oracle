@@ -33,8 +33,8 @@ def main():
     try:
         raw = blob('publication_manifest.csv').decode('utf-8-sig')
         rows = list(csv.DictReader(io.StringIO(raw)))
-        if len(rows) != 355:
-            failures.append(f'Manifest contains {len(rows)} rows, expected 355')
+        if len(rows) != 352:
+            failures.append(f'Manifest contains {len(rows)} rows, expected 352')
         for row in rows:
             name = row['relative_path']
             b = blob(name)
