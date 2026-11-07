@@ -93,7 +93,17 @@ The resulting `extracted_holdout/EXP04_holdout_5metric_sessions.csv` is the
 actual session-level table. Historical scripts may refer to paths not shipped
 in this snapshot; those paths are not prerequisites for integrity verification.
 
-## License
+## Licensing and third-party materials
 
-Choose and add a LICENSE file only after confirming rights to all code and
-third-party components. Media and model weights are not relicensed here.
+The authors' **original source code and accompanying software documentation**
+are released under the [MIT License](LICENSE), subject to confirmation that
+the named copyright holders have the rights to license those contributions.
+See [LICENSING.md](LICENSING.md) for the precise scope and outstanding rights
+checks.
+
+**Research data and third-party materials are not covered by the MIT License.**
+This includes recorded and derived result tables, experiment metadata and ZIP
+archives, external test videos, the NITS-IQA benchmark, downloaded model
+weights, and third-party software. No separate open-data license has yet been
+assigned to the published derived data. The absence of a data license should
+not be interpreted as unrestricted permission to redistribute those files.
