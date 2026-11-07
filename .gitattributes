@@ -1,0 +1,28 @@
+# Preserve publication manifest SHA-256 hashes; text files normally use LF.
+* text eol=lf
+*.zip binary
+# The following 24 published text files intentionally retain CRLF bytes.
+/12_visual_oracle_dashboard.py -text
+/720p50_shields_ter_numbered_metadata.json -text
+/analysis/exp04_freeze_low_y4m_check/freeze_low_frame_differences.csv -text
+/analysis/exp04_freeze_low_y4m_check/freeze_low_masked_pairs.csv -text
+/analysis/exp04_freeze_low_y4m_check/freeze_low_masked_report.txt -text
+/analysis/exp04_freeze_low_y4m_check/freeze_low_report.txt -text
+/captures/EXP04_calibration_640_samples.csv -text
+/captures/EXP04_calibration_640_sessions.csv -text
+/docker/compose.yaml -text
+/exp04_video_manifest.json -text
+/naming_smoke_setup.py -text
+/nits_iqa/analysis_results/calibrated_thresholds.csv -text
+/nits_iqa/analysis_results/distortion_analysis.csv -text
+/nits_iqa/analysis_results/errors_by_distortion.csv -text
+/nits_iqa/analysis_results/oracle_comparison.csv -text
+/nits_iqa/analysis_results/threshold_sensitivity.csv -text
+/recovery/exp04_b02_20261105/fault_runs_summary_before_retry.csv -text
+/recovery/exp04_b02_20261105/status_failed.json -text
+/recovery/exp04_pilot_33_complete/fault_runs_summary.csv -text
+/scenarios/EXP01_Blur_Reproducibility.json -text
+/scenarios/EXP01_Blur_Reproducibility_20261101_203714.json -text
+/scenarios/EXP01_Blur_Reproducibility_shields_json.json -text
+/scenarios/Jitsi_Recovery_Smoke_Test.json -text
+/scenarios/d1.json -text
