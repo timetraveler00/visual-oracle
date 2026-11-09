@@ -30,6 +30,17 @@ archive and must not be described as a self-contained reproduction package.
   The notebook code was validated against the 405-row tabular dataset; no source
   images or neural model inference are included. Historical originals remain local.
 - `publication_manifest.csv` with per-file SHA-256 values.
+- `nits_iqa/nits_iqa_rescore_exp04.py` re-scores the 405 NITS-IQA pairs with the
+  frozen EXP04 models and preprocessing (DISTS_pytorch; DINOv2 ViT-B/14 and ViT-L/14,
+  CLS cosine; OpenCLIP ViT-B-32 laion2b_s34b_b79k; 224x224 letterbox; EXP04 SSIM).
+  The NITS-IQA images are not redistributed; obtain them from the dataset authors.
+- `nits_iqa/verified/NITS_IQA_405_rescored_exp04.csv` holds the re-scored table used
+  for all NITS-IQA results in the revised manuscript.
+- `nits_iqa/verified/nits_iqa_revision_analysis.py` reproduces Tables 7-7C:
+  `python nits_iqa/verified/nits_iqa_revision_analysis.py nits_iqa/verified/NITS_IQA_405_rescored_exp04.csv`
+- The original (historical) table `NITS_IQA_405_verified.csv` is kept for comparison;
+  rank agreement with the re-scored table is rho = 0.977-0.997 for four metrics and
+  0.893 for OpenCLIP.
 
 ## What is intentionally NOT included
 
