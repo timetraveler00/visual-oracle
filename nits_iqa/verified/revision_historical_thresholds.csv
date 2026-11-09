@@ -1,0 +1,7 @@
+rule,accepted,false_accept,false_reject
+SSIM>=80,278,47.6,9.5
+SSIM>=75,304,58.7,8.0
+DINOv2-Base>=70,401,98.1,0.0
+DINOv2-Large>=70,396,95.6,0.0
+OpenCLIP>=65,404,99.5,0.0
+TC11 (SSIM>=75 & DINOv2-Base>=70 & OpenCLIP>=65),302,57.8,8.0
