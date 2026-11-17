@@ -1,0 +1,6 @@
+metric,AUC pooled,AUC Parkrun,AUC ScreenShare,frozen TP/FP,zero-FP global threshold,zero-FP TP,per-video threshold TP/FP
+SSIM q10,0.8395,0.934,0.952,76/10,0.643,58,88/1
+PSNR q10 (dB),0.95,1.0,1.0,94/10,21.8898,89,100/0
+DISTS q90,0.826,0.872,1.0,89/10,0.231,53,88/0
+DINOv2-Base q10,0.8375,0.814,0.93,90/10,0.8549,54,82/1
+OpenCLIP q10,0.8315,0.656,0.984,98/12,0.8329,49,77/1
